@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+          body {
+           
+            background-image: url(rose.jpg); /* Replace 'your-background-image.jpg' with the path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif; /* Set a default font-family */
+        }
+
+        .wrapper {
+            margin-top: 5cm;
+            text-align: center;
+            color: #e9a7a7; /* Set the text color to white or a color that contrasts well with the background */
+            padding: 20px; /* Add padding to the wrapper for better visibility */
+        }
+        .btn-group {
+            padding: 1.2rem;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        button {
+            position: absolute;
+            width: 130px;
+            height: inherit;
+            font-size: 1.2em;
+            color: #f844b6;
+            font-weight: 600;
+            border-radius: 30px;
+            border: 2px solid #200343;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .yes-btn {
+        position: relative; /* Add position: relative; to make absolute positioning relative to this element */
+        left: 100; /* Set the initial left position */
+        top: 60;
+    }
+
+    .no-btn {
+        position: absolute;
+        left: 110; /* Set the initial left position */
+        top: 60; /* Set the initial top position */
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="button.css"> <!-- Ensure this link is correct or remove it -->
+</head>
+<body>
+    <div class="wrapper">
+        <i class="fas fa-heart"></i> <!-- Corrected class name for heart icon -->
+        <h2 class="question"><i>Do you love me?</i></h2>
+        <div class="btn-group">
+            <button class="yes-btn">Yes</button>
+        
+        <button class="no-btn">No</button>
+    </div>
+</div>
+    <script src="button.js"></script>
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const question = document.querySelector('.question');
+        const yesBtn = document.querySelector('.yes-btn');
+        const noBtn = document.querySelector('.no-btn');
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const noBtnRect = noBtn.getBoundingClientRect();
+        
+        const maxX = wrapperRect.width - noBtnRect.width;
+        const maxY = wrapperRect.height - noBtnRect.height;
+    
+        yesBtn.addEventListener('click', () => {
+            question.innerHTML = 'I Love You Too❤️❤️';
+        });
+    
+        noBtn.addEventListener('mouseover', () => {
+            const i = Math.floor(Math.random() * maxX) + 1;
+            const j = Math.floor(Math.random() * maxY) + 1;
+            noBtn.style.left = i + 'px';
+            noBtn.style.top = j + 'px';
+        });
+    </script>
+    
+</body>
+</html>
