@@ -68,6 +68,8 @@
     </div>
 </div>
     <script src="button.js"></script>
+   </script>
+    <script src="button.js"></script>
     <script>
         const wrapper = document.querySelector('.wrapper');
         const question = document.querySelector('.question');
@@ -84,8 +86,8 @@
         });
     
         noBtn.addEventListener('mouseover', () => {
-            const i = Math.floor(Math.random() * maxX) + 1;
-            const j = Math.floor(Math.random() * maxY) + 1;
+            const i = Math.floor(Math.random() * (maxX - 100)) + 1; // Decreased the range
+            const j = Math.floor(Math.random() * (maxY - 100)) + 1; // Decreased the range
             noBtn.style.left = i + 'px';
             noBtn.style.top = j + 'px';
         });
